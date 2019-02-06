@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Untitled Document</title>
+<!-- TemplateEndEditable -->
+<link href="../Photos/template.css" rel="stylesheet" type="text/css" />
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+
+<body>
+
+<div class="container">
+  <div class="content">
+    <h1><!-- TemplateBeginEditable name="Shoe name" -->Shoe name<!-- TemplateEndEditable --></h1>
+    <!-- TemplateBeginEditable name="Price" -->
+    <p>Price:</p>
+    <!-- TemplateEndEditable --><!-- TemplateBeginEditable name="Brand" -->
+    <p>Brand:</p>
+    <!-- TemplateEndEditable --><!-- TemplateBeginEditable name="Size" -->
+    <p>Size:</p>
+    <!-- TemplateEndEditable --><!-- TemplateBeginEditable name="Condition" -->
+    <p>Condition:</p>
+    <!-- TemplateEndEditable --><!-- TemplateBeginEditable name="Box" -->
+    <p>Box:</p>
+    <!-- TemplateEndEditable -->
+    <div class="image"><!-- TemplateBeginEditable name="Picture" --><img src="../Photos/adidas-parley-nmd-city-sock-coming-soon-ac8597-5.jpg" alt="McGreer Hall" width="100%"/><!-- TemplateEndEditable --><!-- TemplateBeginEditable name="Name" -->McGreer Hall (Image: Public Domain) <!-- TemplateEndEditable --></div>
+    <!-- TemplateBeginEditable name="Paypal" -->
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="paypal" class="fltlft">
+      <input type="hidden" name="cmd" value="_s-xclick"/>
+      <input type="hidden" name="hosted_button_id" value="FXV2PF3BZ67PY"/>
+      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!"/>
+      <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"/>
+    </form>
+    <!-- TemplateEndEditable -->
+    <p>&nbsp;</p>
+    <p><a href="../index.html">Home</a></p>
+
+
+  <!-- end .container --></div></div>
+</body>
+</html>

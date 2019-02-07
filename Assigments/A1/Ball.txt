@@ -1,0 +1,4 @@
+If ball touches X,
+bounce up, velocity of the ball [follow newtonian formula]
+
+ball accelerates according to formula

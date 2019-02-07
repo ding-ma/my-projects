@@ -1,0 +1,149 @@
+import java.awt.Color;
+
+import acm.graphics.GLine;
+import acm.graphics.GObject;
+import acm.graphics.GOval;
+import acm.util.RandomGenerator;
+
+public class gBall extends Thread {
+	double Xi;
+	double Yi;
+	public double bSize;
+	public Color bColor;
+	public double bLoss;
+	public double bVel;
+	public GOval myball;
+	double Gravity = 9.8; // physics constant
+	double vt = Math.sqrt(2 * Gravity * Yi); // velocity of an object
+
+	/*
+	 * Totaltime and TIME_OUT allows the program to keep track of the time. With the
+	 * function of Totaltime += Interval_time, we can allow java to add time until
+	 * the TIME_OUT is reached.
+	 */
+	double TotalTime = 0;
+	double TIME_OUT = 45;
+
+	// The following variables are needed to simulate the ball bounce
+	double INTERVAL_TIME = 0.1;
+	double currentHeight;// acts like a free variable, taking whatever value it is assigned to
+	boolean Updir = false; // boolean evaluates true/false
+	double updirection = 0;
+	double Time = 0;
+
+	/**
+	 * The constructor specifies the parameters for simulation:
+	 *
+	 * @param Xi double The initial X position of the center
+	 * of the ball
+	 * @param Yi double The initial Y position of the center
+	 * of the ball
+	 * @param bSize double The radius of the ball in simulation
+	 * units
+	 * @param bLoss double Fraction [0,1] of the energy lost on
+	 * each bounce
+	 * @param bVel double X velocity of ball
+	 * @param bColor 
+	 */
+
+	public gBall(double xball, double yball, double bsize, Color bcolor, double iloss, double vball) {
+		// TODO Auto-generated constructor stub
+		this.Xi = xball; // Get simulation parameters
+		this.Yi = yball;
+		this.bSize = bsize;
+		this.bColor = bcolor;
+		this.bLoss = iloss;
+		this.bVel = vball;
+		myball = new GOval( bSize, bSize);
+		myball.setFilled(true);
+		myball.setFillColor(bcolor);
+			}
+
+	
+
+	public void run() {
+		this.resize(1200, 800); // changing the window size
+		GOval ball = new GOval(Xi,Yi,bSize,bSize); // adding the ball with (X-cord, Y=cord, x-radius, y-radius)
+
+		
+		
+		
+		/*
+		 * The following two variables, "iheight" and "eloss" are entered by the user.
+		 * "iheight" is initial height of the ball and "eloss" is the amount of energy
+		 * loss by the ball on each bounce
+		 */
+
+		
+
+		while (TotalTime < TIME_OUT) {
+			/*
+			 * allows us to stop the simulation after a set amount of time. while (TRUE) the
+			 * instructions are preceded while (FALSE) the instructions are stops
+			 */
+			if (!Updir) {// if direction not up, let the ball drop down
+				currentHeight = Yi - 0.5 * Gravity * Time * Time;// Newtonian physics of a falling object
+				if (currentHeight <= 0) {
+					/*
+					 * if the height of the ball is less than 0, ie touching the ground. The
+					 * following code will allow it to bounce back up. Setting both variables equal to 0 will prevent
+					 * the ball going "into and bellow" the ground when it is rolling.
+					 * 
+					 * original code:
+					 * iheight = currentHeight;
+					 * updirection = currentHeight;
+					 */
+					Yi = 0;
+					updirection = 0;
+					Updir = true;
+					Time = 0;
+					vt = Math.sqrt(1 - bLoss) * vt; // taking account the energy loss
+				}
+			} 
+			else { // this part allows program to bounce back the ball once it got up
+
+				// application of the physics with the new height
+				currentHeight = updirection + vt * Time - 0.5 * Gravity * Time * Time; 
+
+				// reset initial height to the current height in order to loop the calculations again
+				if (currentHeight > Yi) { 
+					Yi = currentHeight;
+				} 
+				else {
+					Updir = false; // ball going down
+					Time = 0; // resetting the time for 0 in order to recalculate the balling ball
+				}
+			}
+			Xi = Xi + bVel * INTERVAL_TIME; // movement of the ball in the x direction
+
+			// printing in the console the answers of the calculation for the user at every interval of time. 
+			System.out.println("Time: " + TotalTime + "X:" + Xi + "Y:" + currentHeight); 
+
+			Time += INTERVAL_TIME; // time used for the fall and bounce of the ball
+			TotalTime += INTERVAL_TIME; // time used for the x movement of the ball
+
+			/* pausing the calculation for 300ms every time in order to see the ball. the
+			 *program would run too fast otherwise displays the new location of the ball
+			 */
+			try { // pause for 50 milliseconds
+				Thread.sleep(50);
+				} catch (InterruptedException e) {
+				e.printStackTrace();
+				}
+			
+			//displays the new location of the ball with all of physics applied
+			add(new GOval(Xi + 40, 560 - currentHeight*10, 1, 1));
+			ball.setLocation(Xi, 520 - currentHeight*10);
+	}
+}
+	private void add(GOval gOval) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void resize(int i, int j) {
+		// TODO Auto-generated method stub
+		
+	}
+}

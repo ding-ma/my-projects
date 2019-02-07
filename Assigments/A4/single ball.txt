@@ -1,0 +1,9 @@
+Color Color
+	double PS_BallSize
+	double PS_Loss
+	double PS_Xvel
+
+	sliderBox colorSlider
+	sliderBox ballSizeSlider
+	sliderBox ballLossSlider
+	sliderBox ballxVelSlider

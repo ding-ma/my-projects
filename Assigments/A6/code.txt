@@ -1,0 +1,39 @@
+#get the argument from the command line
+#compare that with the given ones
+
+	
+	sscanf("%d",&command);
+	if(strcmp(command, "LN")){
+		//	tranverseLastNames(rootName);
+	}
+	else if(strcmp(command,"LI")){
+
+	}
+	else if(strcmp(command,"FN")){
+
+	}
+	else if(strcmp(command,"FI")){
+
+	}
+	else if(strcmp(command,"HELP")){
+		printf("LN List all the records in the database ordered by last name.\n");
+		printf("LI List all the records in the database ordered by student ID.\n");
+		printf("FN Prompts for a name and lists the record of the student with the corresponding name.\n");
+		printf("FI Prompts for a name and lists the record of the student with the corresponding ID.\n");
+		printf("HELP Prints this list\n");
+		printf("? Prints this list\n");
+		printf("Q Exits the program.\n");
+
+	}
+	else if(command=?){
+		printf("LN List all the records in the database ordered by last name.\n");
+		printf("LI List all the records in the database ordered by student ID.\n");
+		printf("FN Prompts for a name and lists the record of the student with the corresponding name.\n");
+		printf("FI Prompts for a name and lists the record of the student with the corresponding ID.\n");
+		printf("HELP Prints this list\n");
+		printf("? Prints this list\n");
+		printf("Q Exits the program.\n");
+	}
+	else if(strcmp(command,"Q")){
+		return 2;
+	}
